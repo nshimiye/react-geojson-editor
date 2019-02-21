@@ -27,5 +27,8 @@
   },
   "bugs": {
     "url": "https://github.com/nshimiye/react-geojson-editor/issues"
+  },
+  "devDependencies": {
+    "jest": "^24.1.0"
   }
 }

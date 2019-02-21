@@ -29,5 +29,8 @@
   },
   "bugs": {
     "url": "https://github.com/nshimiye/react-geojson-editor-demo/issues"
+  },
+  "devDependencies": {
+    "mocha": "^6.0.1"
   }
 }
