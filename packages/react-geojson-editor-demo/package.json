@@ -1,0 +1,33 @@
+{
+  "name": "react-geojson-editor-demo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "demo app for react-geojson-editor package",
+  "keywords": [
+    "demo",
+    "geojson",
+    "react",
+    "maps"
+  ],
+  "author": "Marcellin Nshimiyimana <marcellin2@gmail.com>",
+  "homepage": "https://marcellin.me/os/typescript/react-geojson-editor-demo",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nshimiye/react-geojson-editor-demo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/nshimiye/react-geojson-editor-demo/issues"
+  }
+}
