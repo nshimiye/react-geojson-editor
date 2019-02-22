@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// import { GeoJsonEditorDemo } from './GeoJsonEditorDemo';
+
 import './App.css';
 import LocationSearch from './LocationSearch';
 
@@ -8,6 +10,7 @@ class App extends Component {
     return (
       <div className="App">
           <LocationSearch />
+          {/* <GeoJsonEditorDemo /> */}
       </div>
     );
   }

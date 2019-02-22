@@ -40,6 +40,7 @@
     "classnames": "2.2.6",
     "flexboxgrid": "6.3.1",
     "react": "^16.8.3",
+    "react-autosuggest": "9.4.3",
     "react-dom": "^16.8.3",
     "react-geojson-editor": "^0.0.13",
     "react-scripts": "2.1.5",

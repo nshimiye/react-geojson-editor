@@ -5,6 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight, faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 
 import 'flexboxgrid/css/flexboxgrid.min.css'
+import { SearchRegion } from './SearchRegion';
+
+// @TODO cleanup demo
+/**
+ * Select for extra regions to combine with current location
+ */
 
 function * IdGenerator( i = 2, n = 100) {
   while(i < n) {
@@ -126,7 +132,20 @@ class LocationSearch extends Component {
       {
         title: 'Manhattan',
         openstreetmapId: '199324647'
-      }, {
+      },
+      {
+        title: 'Soho',
+        openstreetmapId: '199241405'
+      },
+      {
+        title: 'Central Park',
+        openstreetmapId: '250753466'
+      },
+      {
+        title: 'Harlem',
+        openstreetmapId: '199412251'
+      },
+      {
         title: 'Queens County',
         openstreetmapId: '198839459'
       }, {
@@ -144,7 +163,7 @@ class LocationSearch extends Component {
         .then(({ place_id, centroid: { coordinates: [lng, lat] }, geometry: { coordinates }, names: { name } }) => {
           const geometry = {"type":"MultiPolygon","coordinates": [coordinates] }
 
-          return { id: place_id, center: { lng, lat }, title: name, description: '', geojson: {"type":"FeatureCollection","features":[{"type":"Feature", geometry }] } }
+          return { id: place_id, center: { lng, lat }, title: name, name, description: '', geojson: {"type":"FeatureCollection","features":[{"type":"Feature", geometry }] } }
         })
       )
     ).then(locations => {
@@ -165,7 +184,42 @@ class LocationSearch extends Component {
             onNewLocation={() => { this.setState({ selectedLocationId: 0 }) }}
           />    
         <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-          <div className="box" style={{ height: 550 }}>
+          <div className="box" style={{ height: 800 }}>
+            <div className="App-flex" style={{ border: '1px solid grey', padding: '1em' }}>
+
+              <SearchRegion
+                placeholder="Search ..."
+                regions={this.state.locations}
+                onSuggestionSelected={({ geojson: { features: [ searchedFeature] } }) => {
+
+                    this.setState(state => {
+                      // const location = state.locations.find()
+                      // let selectedLocation = this.state.locations.find(({ id }) => id === this.state.selectedLocationId);
+                      const selectedLocation = state.locations.find(({ id }) => id === state.selectedLocationId);
+
+                      const locations = state.locations.map(l => {                        
+                        if(l === selectedLocation) {
+                          const features = [
+                            ...selectedLocation.geojson.features,
+                            searchedFeature
+                          ];
+                          return { ...selectedLocation, geojson: {  ...selectedLocation.geojson, features } }
+                        }
+
+                        return l;
+                      });
+
+
+                      return {
+                        locations
+                      }
+                    });
+
+
+                }}
+              />
+
+            </div>
             <div className="App-flex" style={{ border: '1px solid grey' }}>
  
 
@@ -173,15 +227,16 @@ class LocationSearch extends Component {
             initialGeojson={location ? location.geojson : null}
   >
     {({ geojson, center }, { onSaveGeojson }) => {
-        console.log(location && location.center);
+        console.log(location && location.geojson);
         
-        return (<div style={{ width: 500, height: 500 }}>
+        return (<div style={{ width: '100%', height: 700 }}>
             <GeoJsonEditor
               googleMapKey="AIzaSyD_HADQAEoHkZhBhqh-oDaiLHuRyHbyP9c"
               initialMode="VIEW"
               existingPolygons={location ? location.geojson : undefined}
               center={location ? location.center : undefined}
-              zoom={10}
+              zoom={11}
+              mapHeight={700}
               onSave={(geojson, area) => {
                 console.log('geojson area', geojson, area);
                 const description = `Region with an area of ${area} square meters`;
