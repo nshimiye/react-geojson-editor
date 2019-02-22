@@ -2,28 +2,6 @@ import scriptjs from 'scriptjs';
 
 export const GeoJsonEditorMode = { CREATE: 'CREATE', EDIT: 'EDIT', VIEW: 'VIEW', DELETE: 'DELETE' };
 
-// export const createGeoJson = (google, polygons, cb) => {
-//     const newData = new google.maps.Data();
-//     newData.add(new google.maps.Data.Feature({
-//         geometry: new google.maps.Data.MultiPolygon(
-//             polygons.map(
-//                 polygon => polygon.getPaths().getArray().map(path => path.getArray()),
-//             )
-//         )
-//     }));
-
-//     const area = polygons.reduce((acc, polygon) => {
-//         const [ first ] = polygon.getPaths().getArray().map(path => path.getArray());
-//         const outerArea = google.maps.geometry.spherical.computeArea(first); // @TODO test correctness
-//         return acc + outerArea;
-//     }, 0);
-
-//     newData.toGeoJson((geoJSON) => {
-//         // console.log('[createMPGeojson1] geoJSON', geoJSON);
-//         if(typeof cb === 'function') cb(geoJSON, area);
-//     })
-// }
-
 /**
  * From jsdoc
  * @external google.maps.Data
@@ -38,9 +16,17 @@ export const GeoJsonEditorMode = { CREATE: 'CREATE', EDIT: 'EDIT', VIEW: 'VIEW',
  * @return {boolean}
  */
 export function isPathClockwise(google, path) {
-    const outerArea = google.maps.geometry.spherical.computeSignedArea(path.getArray());
-    console.log('outerAreaouterArea', outerArea, path);
+
+    const ring = [...path.getArray()];
+    const reversev2 = ring.reverse;
+    const reversedRing = reversev2.call( [ ...ring ] );
+
+    const outerArea = google.maps.geometry.spherical.computeSignedArea(ring);
+    console.log('outerAreaouterArea 1', outerArea, ring.map(p => [p.lng(), p.lat()]));
     
+    const outerArea2 = google.maps.geometry.spherical.computeSignedArea(reversedRing);
+    console.log('outerAreaouterArea 2', outerArea2, reversedRing.map(p => [p.lng(), p.lat()]));
+
     return outerArea > 0;
 }
 

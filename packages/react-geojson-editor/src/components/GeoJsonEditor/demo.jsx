@@ -7,16 +7,16 @@ export class GeoJsonEditorStore extends Component {
         center: { lat: 51.528308, lng: -0.3817765 },
     };
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                center: { lng: -73.9598295, lat: 40.7900869 }, // { lat: 51.528308, lng: -0.7817765 },
-            })
-        }, 5000);
-    }
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({
+    //             center: { lng: -73.9598295, lat: 40.7900869 }, // { lat: 51.528308, lng: -0.7817765 },
+    //         })
+    //     }, 5000);
+    // }
 
     onSaveGeojson(geojson) {
-        this.setState({ geojson, center });
+        this.setState({ geojson });
     }
 
     render() {
@@ -33,14 +33,15 @@ export const Demo = () => <GeoJsonEditorStore initialGeojson={
 }
 >
     {({ geojson, center }, { onSaveGeojson }) =>
-        (<div style={{ width: 700, height: 500 }}>
+        (<div style={{ width: 1000, height: 700 }}>
             <GeoJsonEditor
                 initialMode="VIEW"
+                googleMapKey="AIzaSyD_HADQAEoHkZhBhqh-oDaiLHuRyHbyP9c"
                 existingPolygons={geojson}
                 center={center}
                 zoom={10}
                 onSave={onSaveGeojson}
-                mapHeight={500}
+                mapHeight={700}
             />
         </div>)}
 </GeoJsonEditorStore>;

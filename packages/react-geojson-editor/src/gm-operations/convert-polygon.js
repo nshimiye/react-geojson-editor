@@ -110,8 +110,9 @@ export function createUIPolygon(dataPolygon, { google }) {
             // - google.maps.Data reorders inner arrays only if it is added to map (through setMap), so 
             //          to convert it(google.maps.Data) to Array<google.maps.Polygon>, you will need to do "custom reorder"
             ...pathList.map(path => isFirstClockwise && isPathClockwise(google, path) ?
-                [...path.getArray()].reverse() :
-                path.getArray())
+                ( path.getArray().reverse ).call( [...path.getArray()] ) :
+                path.getArray()
+            )
         ],
         editable: false,
         clickable: true,
