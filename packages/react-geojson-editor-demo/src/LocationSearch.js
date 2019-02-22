@@ -141,9 +141,10 @@ class LocationSearch extends Component {
     Promise.all(
       staticLocations.map(({ openstreetmapId }) =>
         fetch(`${OPENSTREETMAP_GEOJSON_API}&place_id=${openstreetmapId}`).then(r => r.json())
-        .then(({ place_id, centroid, geometry: { coordinates }, names: { name } }) => {
+        .then(({ place_id, centroid: { coordinates: [lng, lat] }, geometry: { coordinates }, names: { name } }) => {
           const geometry = {"type":"MultiPolygon","coordinates": [coordinates] }
-          return { id: place_id, center: centroid, title: name, description: '', geojson: {"type":"FeatureCollection","features":[{"type":"Feature", geometry }] } }
+
+          return { id: place_id, center: { lng, lat }, title: name, description: '', geojson: {"type":"FeatureCollection","features":[{"type":"Feature", geometry }] } }
         })
       )
     ).then(locations => {
@@ -172,14 +173,15 @@ class LocationSearch extends Component {
             initialGeojson={location ? location.geojson : null}
   >
     {({ geojson, center }, { onSaveGeojson }) => {
-        console.log(location && {lat: location.center.coordinates[0], lng: location.center.coordinates[1] });
+        console.log(location && location.center);
         
         return (<div style={{ width: 500, height: 500 }}>
             <GeoJsonEditor
               googleMapKey="AIzaSyD_HADQAEoHkZhBhqh-oDaiLHuRyHbyP9c"
               initialMode="VIEW"
               existingPolygons={location ? location.geojson : null}
-              center={location ? location.center : null}
+            //   center={location ? location.center : { lat: 51.528308, lng: -0.7817765 }}
+              center={center}
               zoom={10}
               onSave={onSaveGeojson}
             />
@@ -204,8 +206,17 @@ export default LocationSearch;
 export class GeoJsonEditorStore extends Component {
     state = {
       geojson: this.props.initialGeojson,
+      center: { lat: 51.528308, lng: -0.3817765 },
     };
   
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                center: { lng: -73.9598295, lat: 40.7900869 }, // { lat: 51.528308, lng: -0.7817765 },
+            })
+        }, 5000);
+    }
+
     onSaveGeojson(geojson) {
       this.setState({ geojson });
     }
