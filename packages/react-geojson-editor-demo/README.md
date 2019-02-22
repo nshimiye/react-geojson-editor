@@ -1,11 +1,5 @@
-# `react-geojson-editor-demo`
+# react-geojson-editor-demo
 
-> TODO: description
+## Development
 
-## Usage
-
-```
-const reactGeojsonEditorDemo = require('react-geojson-editor-demo');
-
-// TODO: DEMONSTRATE API
-```
+This demo uses `create-react-app` behind the scene.

@@ -25,15 +25,27 @@
     "url": "git+https://github.com/nshimiye/react-geojson-editor-demo.git"
   },
   "scripts": {
-    "test": "mocha __tests__"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "bugs": {
     "url": "https://github.com/nshimiye/react-geojson-editor-demo/issues"
   },
-  "devDependencies": {
-    "mocha": "^6.0.1"
-  },
   "dependencies": {
-    "react-geojson-editor": "^0.0.6"
-  }
+    "react-geojson-editor": "^0.0.6",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "2.1.5"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
