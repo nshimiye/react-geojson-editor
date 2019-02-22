@@ -1,6 +1,6 @@
 {
   "name": "react-geojson-editor-demo",
-  "version": "0.0.11-alpha.1",
+  "version": "0.0.12",
   "private": true,
   "description": "demo app for react-geojson-editor package",
   "keywords": [
@@ -41,7 +41,7 @@
     "flexboxgrid": "6.3.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-geojson-editor": "0.0.11",
+    "react-geojson-editor": "^0.0.12",
     "react-scripts": "2.1.5",
     "scriptjs": "2.5.9"
   },
