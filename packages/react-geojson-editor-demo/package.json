@@ -32,5 +32,8 @@
   },
   "devDependencies": {
     "mocha": "^6.0.1"
+  },
+  "dependencies": {
+    "react-geojson-editor": "0.0.5"
   }
 }

@@ -1,8 +1,10 @@
+'use strict';
+
+var userge = require('../lib/index.js'); 
+
 var assert = require('assert');
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal([1, 2, 3].indexOf(4), -1);
+describe('Use GeoJson', function() {
+    it('should return a GeoJson message', function() {
+      assert.equal(userge.getMessage(), 'React GeoJson Editor');
     });
-  });
 });

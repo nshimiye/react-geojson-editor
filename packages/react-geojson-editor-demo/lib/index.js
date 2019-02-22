@@ -1,7 +1,11 @@
 'use strict';
 
-module.exports = reactGeojsonEditorDemo;
+var reactGeojsonEditor = require('react-geojson-editor');
 
 function reactGeojsonEditorDemo() {
-    // TODO
+    this.getMessage = function() {
+        return reactGeojsonEditor();
+    }
 }
+
+module.exports = new reactGeojsonEditorDemo();
