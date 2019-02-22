@@ -1,6 +1,6 @@
 {
   "name": "react-geojson-editor-demo",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": true,
   "description": "demo app for react-geojson-editor package",
   "keywords": [
@@ -34,9 +34,9 @@
     "url": "https://github.com/nshimiye/react-geojson-editor-demo/issues"
   },
   "dependencies": {
-    "react-geojson-editor": "^0.0.6",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-geojson-editor": "^0.0.7",
     "react-scripts": "2.1.5"
   },
   "eslintConfig": {
