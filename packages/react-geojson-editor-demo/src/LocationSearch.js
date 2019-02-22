@@ -179,11 +179,40 @@ class LocationSearch extends Component {
             <GeoJsonEditor
               googleMapKey="AIzaSyD_HADQAEoHkZhBhqh-oDaiLHuRyHbyP9c"
               initialMode="VIEW"
-              existingPolygons={location ? location.geojson : null}
-            //   center={location ? location.center : { lat: 51.528308, lng: -0.7817765 }}
-              center={center}
+            //   existingPolygons={location ? location.geojson : null}
+              center={location ? location.center : undefined}
               zoom={10}
-              onSave={onSaveGeojson}
+              onSave={(geojson, area) => {
+                console.log('geojson area', geojson, area);
+                const description = `Region with an area of ${area} square meters`;
+
+                // @TODO send this geojson to backend
+                this.setState(state => {
+                  // update existing location
+                  if (state.selectedLocationId) {
+                    const locations = state.locations.map(location => {
+                      const { id } = location;
+                      return id === state.selectedLocationId ? { ...location, geojson, description } : location;
+                    });
+                    return { locations }
+                  }
+
+                  // create new location
+                  const nextId = generator.next().value;
+                  return {
+                    selectedLocationId: nextId,
+                    locations: [
+                      ...state.locations,
+                      {
+                        id: nextId,
+                        title: `Location ${nextId}`,
+                        description,
+                        geojson,
+                      }
+                  ]
+                };
+              })
+              }}
             />
           </div>);
     }}
@@ -230,6 +259,24 @@ export class GeoJsonEditorStore extends Component {
     }
   }
 
+  export const Demo2 = () => <GeoJsonEditorStore>
+{({ geojson, center }, { onSaveGeojson }) => {
+console.log(center);
+
+return (<div style={{ width: 500, height: 500 }}>
+  <GeoJsonEditor
+    googleMapKey="AIzaSyD_HADQAEoHkZhBhqh-oDaiLHuRyHbyP9c"
+    initialMode="VIEW"
+  //   existingPolygons={location ? location.geojson : null}
+  //   center={location ? location.center : { lat: 51.528308, lng: -0.7817765 }}
+    center={center}
+    zoom={10}
+    onSave={onSaveGeojson}
+  />
+</div>);
+}}
+</GeoJsonEditorStore>
+// export default Demo2;
 
 /**
                   // @TODO send this geojson to backend
