@@ -94,8 +94,12 @@ export class GoogleMapInitialzer extends Component {
 
     componentDidUpdate(prevProps) {
       const { center } = this.props;
-      if (prevProps.center !== center)
+      if (prevProps.center !== center) {
         this.state.map.setCenter(center);
+        requestAnimationFrame(() => {
+          alert('CENTER CHANGED! ' + JSON.stringify(center, null, 4));
+        })
+      }
     }
   
     render() {
