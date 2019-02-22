@@ -40,6 +40,7 @@ export const Demo = () => <GeoJsonEditorStore initialGeojson={
                 center={center}
                 zoom={10}
                 onSave={onSaveGeojson}
+                mapHeight={500}
             />
         </div>)}
 </GeoJsonEditorStore>;

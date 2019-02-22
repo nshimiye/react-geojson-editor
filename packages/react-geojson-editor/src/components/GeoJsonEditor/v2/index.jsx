@@ -18,7 +18,7 @@ export class GeoJsonEditor extends Component {
     };
 
     render() {
-        const { center, zoom, onSave, existingPolygons } = this.props;
+        const { center, zoom, onSave, existingPolygons, mapHeight, mapWidth } = this.props;
         const { controlMode } = this.state;
         const active = controlMode === GeoJsonEditorMode.EDIT;
         return <div style={{ position: 'relative' }}>
@@ -26,6 +26,8 @@ export class GeoJsonEditor extends Component {
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${this.props.googleMapKey}&v=3.exp&libraries=geometry,drawing,places`}
                 center={center}
                 zoom={zoom}
+                height={mapHeight}
+                width={mapWidth}
             >
 <PolygonDataProvider initialGeojson={existingPolygons} onSave={onSave}>
 
@@ -125,5 +127,7 @@ GeoJsonEditor.defaultProps = {
     zoom: 5,
     googleMapKey: process.env.GOOGLE_MAP_KEY,
     initialMode: GeoJsonEditorMode.VIEW,
+    mapHeight: 500,
+    mapWidth: '100%',
     onSave: () => {},
 };

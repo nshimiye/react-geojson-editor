@@ -3,6 +3,8 @@
 //    providing this context to child components (ex: allowing DrawingManager component to access map instance)
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { fetchJsScript } from '../../../utils';
 import { subtractPolygons } from '../../../turfjs-operations/subtraction';
 import { convertPolygonToGeoJsonMulti, convertGeojsonToPolygon, convertGeojsonToGMData, gmDataToPolygonList, createGeoJson } from '../../../gm-operations/convert-polygon';
@@ -69,6 +71,19 @@ export const GoogleMapContext = React.createContext({
   map: null,
 });
 export class GoogleMapInitialzer extends Component {
+    static propTypes = {
+      width: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ]),
+      // @note height needs to be greater than 0px
+      // @source: https://developers.google.com/maps/documentation/javascript/adding-a-google-map
+      height: PropTypes.number.isRequired,
+    }
+    static defaultProps = {
+      width: '100%',
+    }
+
     static contextType = ScriptContext;
     state = { google: null, map: null };
     constructor(props, context) {
@@ -104,8 +119,9 @@ export class GoogleMapInitialzer extends Component {
     }
   
     render() {
+      const { width, height } = this.props;
       const { map } = this.state;
-      return (<div style={{ width: '90vw', height: '90vh' }} ref={this.mapElement}>
+      return (<div style={{ width, height }} ref={this.mapElement}>
         {map ?
           <GoogleMapContext.Provider value={this.state}>
             {this.props.children}
@@ -117,12 +133,14 @@ export class GoogleMapInitialzer extends Component {
 }
 
 export default function GoogleMapWithLoader({
-  googleMapURL, children, center, zoom,
+  googleMapURL, children, center, zoom, height, width
 }) {
   return (<ScriptLoader scriptUrl={googleMapURL}>
     <GoogleMapInitialzer
       center={center}
       zoom={zoom}
+      height={height}
+      width={width}
     >
       {children}
     </GoogleMapInitialzer>
