@@ -1,6 +1,6 @@
 {
   "name": "react-geojson-editor",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Create/Edit geojson based shapes and save updates as geojson",
   "keywords": [
     "geojson",
