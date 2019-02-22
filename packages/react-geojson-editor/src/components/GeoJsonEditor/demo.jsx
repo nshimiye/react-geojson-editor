@@ -4,10 +4,19 @@ import GeoJsonEditor from './v2';
 export class GeoJsonEditorStore extends Component {
     state = {
         geojson: this.props.initialGeojson,
+        center: { lat: 51.528308, lng: -0.3817765 },
     };
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                center: { lat: 51.528308, lng: -0.7817765 },
+            })
+        }, 5000);
+    }
+
     onSaveGeojson(geojson) {
-        this.setState({ geojson });
+        this.setState({ geojson, center });
     }
 
     render() {
@@ -28,7 +37,7 @@ export const Demo = () => <GeoJsonEditorStore initialGeojson={
             <GeoJsonEditor
                 initialMode="VIEW"
                 existingPolygons={geojson}
-                center={{ lat: 51.528308, lng: -0.3817765 }}
+                center={center}
                 zoom={10}
                 onSave={onSaveGeojson}
             />

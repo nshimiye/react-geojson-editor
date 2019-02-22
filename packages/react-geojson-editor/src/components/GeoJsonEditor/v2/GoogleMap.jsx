@@ -92,6 +92,12 @@ export class GoogleMapInitialzer extends Component {
       this.setState({ google, map });
     }
 
+    componentDidUpdate(prevProps) {
+      const { center } = this.props;
+      if (prevProps.center !== center)
+        this.state.map.setCenter(center);
+    }
+  
     render() {
       const { map } = this.state;
       return (<div style={{ width: '90vw', height: '90vh' }} ref={this.mapElement}>
