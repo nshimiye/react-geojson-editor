@@ -41,7 +41,7 @@
     "flexboxgrid": "6.3.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-geojson-editor": "^0.0.11-alpha.0",
+    "react-geojson-editor": "0.0.11-alpha.0",
     "react-scripts": "2.1.5",
     "scriptjs": "2.5.9"
   },
