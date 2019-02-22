@@ -179,7 +179,7 @@ class LocationSearch extends Component {
             <GeoJsonEditor
               googleMapKey="AIzaSyD_HADQAEoHkZhBhqh-oDaiLHuRyHbyP9c"
               initialMode="VIEW"
-            //   existingPolygons={location ? location.geojson : null}
+              existingPolygons={location ? location.geojson : undefined}
               center={location ? location.center : undefined}
               zoom={10}
               onSave={(geojson, area) => {
