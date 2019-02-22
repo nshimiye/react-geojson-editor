@@ -2,8 +2,8 @@ import ButtonComponent from './Button/index';
 import DropdownComponent from './Dropdown/index';
 import GeoJsonEditorComponent from './GeoJsonEditor/index';
 
-export const Button = HelloWorldComponent;
-export const Dropdown = HelloWorldComponent;
+export const Button = ButtonComponent;
+export const Dropdown = DropdownComponent;
 export const GeoJsonEditor = GeoJsonEditorComponent;
 
 export default {
