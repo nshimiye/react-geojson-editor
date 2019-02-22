@@ -97,7 +97,8 @@ export class GoogleMapInitialzer extends Component {
       if (prevProps.center !== center) {
         this.state.map.setCenter(center);
         requestAnimationFrame(() => {
-          alert('CENTER CHANGED! ' + JSON.stringify(center, null, 4));
+          // alert('CENTER CHANGED! ' + JSON.stringify(center, null, 4));
+          console.log('CENTER CHANGED! ' + JSON.stringify(center, null, 4));
         })
       }
     }
