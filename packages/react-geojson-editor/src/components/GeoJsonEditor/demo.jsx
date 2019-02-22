@@ -10,7 +10,7 @@ export class GeoJsonEditorStore extends Component {
     componentDidMount() {
         setTimeout(() => {
             this.setState({
-                center: { lat: 51.528308, lng: -0.7817765 },
+                center: { lng: -73.9598295, lat: 40.7900869 }, // { lat: 51.528308, lng: -0.7817765 },
             })
         }, 5000);
     }
