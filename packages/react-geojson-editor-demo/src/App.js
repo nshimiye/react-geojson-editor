@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 
-import { HelloWorld } from 'react-geojson-editor';
-
 import './App.css';
+import LocationSearch from './LocationSearch';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-container">
-          <HelloWorld />
-        </div>
+          <LocationSearch />
       </div>
     );
   }
