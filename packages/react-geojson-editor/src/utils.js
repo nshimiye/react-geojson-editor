@@ -1,6 +1,8 @@
 import scriptjs from 'scriptjs';
 
-export const GeoJsonEditorMode = { CREATE: 'CREATE', EDIT: 'EDIT', VIEW: 'VIEW', DELETE: 'DELETE' };
+export const GeoJsonEditorMode = {
+  CREATE: 'CREATE', EDIT: 'EDIT', VIEW: 'VIEW', DELETE: 'DELETE',
+};
 
 /**
  * From jsdoc
@@ -16,29 +18,33 @@ export const GeoJsonEditorMode = { CREATE: 'CREATE', EDIT: 'EDIT', VIEW: 'VIEW',
  * @return {boolean}
  */
 export function isPathClockwise(google, path) {
+  const ring = path.getArray();
+  // const ring = [...path.getArray()];
+  // const reversev2 = ring.reverse;
+  // const reversedRing = reversev2.call([...ring]);
 
-    const ring = [...path.getArray()];
-    const reversev2 = ring.reverse;
-    const reversedRing = reversev2.call( [ ...ring ] );
+  const outerArea = google.maps.geometry.spherical.computeSignedArea(ring);
+  // console.log('outerAreaouterArea 1', outerArea, ring.map(p => [p.lng(), p.lat()]));
 
-    const outerArea = google.maps.geometry.spherical.computeSignedArea(ring);
-    console.log('outerAreaouterArea 1', outerArea, ring.map(p => [p.lng(), p.lat()]));
-    
-    const outerArea2 = google.maps.geometry.spherical.computeSignedArea(reversedRing);
-    console.log('outerAreaouterArea 2', outerArea2, reversedRing.map(p => [p.lng(), p.lat()]));
+  // const outerArea2 = google.maps.geometry.spherical.computeSignedArea(reversedRing);
+  // console.log('outerAreaouterArea 2', outerArea2, reversedRing.map(p => [p.lng(), p.lat()]));
 
-    return outerArea > 0;
+  return outerArea > 0;
 }
 
 // NOT related to GeoJson
 export function fetchJsScript(url, onloadFunction, onErrorFunction) {
+  try {
     scriptjs(url, onloadFunction);
+  } catch (error) {
+    onErrorFunction(error);
+  }
 }
 export function fetchJsScriptCustom(url, onloadFunction, onErrorFunction) {
-    const tag = document.createElement('script');
-    if (onloadFunction) { tag.onload = onloadFunction; }
-    if (onErrorFunction) { tag.onerror = onErrorFunction; }
-    tag.async = true;
-    tag.src = url;
-    document.currentScript.parentNode.insertBefore(tag, document.currentScript)
+  const tag = document.createElement('script');
+  if (onloadFunction) { tag.onload = onloadFunction; }
+  if (onErrorFunction) { tag.onerror = onErrorFunction; }
+  tag.async = true;
+  tag.src = url;
+  document.currentScript.parentNode.insertBefore(tag, document.currentScript);
 }
