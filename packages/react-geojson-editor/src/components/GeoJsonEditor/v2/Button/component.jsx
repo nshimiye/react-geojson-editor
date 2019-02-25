@@ -1,4 +1,5 @@
-import React, { Component, Children } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import ButtonStyles from './styles.scss';
 
@@ -9,5 +10,9 @@ export const Button = ({ children, ...props }) => (
   >{children}
   </button>
 );
+
+Button.propTypes = {
+  children: PropTypes.string.isRequired,
+};
 
 export default Button;

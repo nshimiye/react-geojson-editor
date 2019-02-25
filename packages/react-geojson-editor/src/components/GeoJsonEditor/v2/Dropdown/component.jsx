@@ -4,16 +4,25 @@ import classnames from 'classnames';
 
 // import OutsideClickHandler from 'react-outside-click-handler';
 import DropdownStyles from './styles.scss';
+import { StylesType } from '../../../../custom-types';
+
+export function renderContent(children) {
+  return (
+    <div className={DropdownStyles.dropdownBody}>
+      {children}
+    </div>
+  );
+}
 
 export class Dropdown extends Component {
+  constructor(props) {
+    super(props);
+    this.onBlurClose = this.onBlurClose.bind(this);
+    this.toggleOpen = this.toggleOpen.bind(this);
+    // this.renderContent = this.renderContent.bind(this);
+  }
     state = {
       open: this.props.openAtStart,
-    }
-    constructor(props) {
-      super(props);
-      this.onBlurClose = this.onBlurClose.bind(this);
-      this.toggleOpen = this.toggleOpen.bind(this);
-      this.renderContent = this.renderContent.bind(this);
     }
 
     onBlurClose() {
@@ -24,14 +33,6 @@ export class Dropdown extends Component {
       e.preventDefault();
       const { children } = this.props;
       this.setState({ open: !this.state.open && Boolean(Children.count(children)) });
-    }
-
-    renderContent(children) {
-      return (
-        <div className={DropdownStyles.dropdownBody}>
-          {children}
-        </div>
-      );
     }
 
     render() {
@@ -50,17 +51,17 @@ export class Dropdown extends Component {
         >
           <div className={DropdownStyles.dropdownContainer} style={containerStyle}>
             {/* <OutsideClickHandler onOutsideClick={this.onBlurClose}> */}
-            <div
-              className={open ?
-                                classnames(DropdownStyles.dropdownButton, DropdownStyles.open) :
-                                DropdownStyles.dropdownButton
-                            }
-              tabIndex="0"
+            <button
+              className={
+                open ?
+                  classnames(DropdownStyles.dropdownButton, DropdownStyles.open) :
+                  DropdownStyles.dropdownButton
+              }
               onClick={this.toggleOpen}
             >
               {name}
-            </div>
-            {open && this.renderContent(children)}
+            </button>
+            {open && renderContent(children)}
             {/* </OutsideClickHandler> */}
           </div>
         </div>
@@ -75,14 +76,18 @@ Dropdown.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
   name: PropTypes.string,
-  style: PropTypes.object,
-  containerStyle: PropTypes.object,
+  style: StylesType,
+  containerStyle: StylesType,
+  positionRight: PropTypes.bool,
+  openAtStart: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   name: 'Dropdown',
   style: {},
   containerStyle: {},
+  positionRight: false,
+  openAtStart: false,
 };
 
 export default Dropdown;

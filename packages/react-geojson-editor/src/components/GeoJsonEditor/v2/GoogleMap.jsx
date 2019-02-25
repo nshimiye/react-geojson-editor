@@ -74,7 +74,7 @@ export class GoogleMapInitialzer extends Component {
     static propTypes = {
       width: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
+        PropTypes.number,
       ]),
       // @note height needs to be greater than 0px
       // @source: https://developers.google.com/maps/documentation/javascript/adding-a-google-map
@@ -113,11 +113,11 @@ export class GoogleMapInitialzer extends Component {
         this.state.map.setCenter(center);
         requestAnimationFrame(() => {
           // alert('CENTER CHANGED! ' + JSON.stringify(center, null, 4));
-          console.log('CENTER CHANGED! ' + JSON.stringify(center, null, 4));
-        })
+          console.log(`CENTER CHANGED! ${JSON.stringify(center, null, 4)}`);
+        });
       }
     }
-  
+
     render() {
       const { width, height } = this.props;
       const { map } = this.state;
@@ -133,7 +133,7 @@ export class GoogleMapInitialzer extends Component {
 }
 
 export default function GoogleMapWithLoader({
-  googleMapURL, children, center, zoom, height, width
+  googleMapURL, children, center, zoom, height, width,
 }) {
   return (<ScriptLoader scriptUrl={googleMapURL}>
     <GoogleMapInitialzer
@@ -306,13 +306,15 @@ export class PolygonDataProvider extends Component {
       }), cb);
     }
 
-    persistChanges(/* ev */) {
+    persistChanges(_, cb) {
       // 1. create a new GeoJson<MultiPolygon>
       // 2. send onSave action to the parent, telling it to update backend with newly created geojson
       createGeoJson([...this.state.newPolygonList, ...this.state.polygonList], this.context)
         .then(({ geojson, totalArea }) => {
           console.log('[createGeoJson]', geojson, totalArea);
-          this.props.onSave(geojson, totalArea); // @TODO
+
+          cb(); // @TODO How do i save new GeoJson and turn off edit mode?
+          this.props.onSave(geojson, totalArea); // @TODO How do i save new GeoJson and turn off edit mode?
         });
     }
     // END Action handlers

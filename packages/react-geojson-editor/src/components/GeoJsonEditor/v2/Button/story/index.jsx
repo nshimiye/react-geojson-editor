@@ -8,13 +8,15 @@ import Dropdown from '../component';
 export default (storiesOf, module, ContainerDecorator) => {
   storiesOf('Dropdown', module)
     .addDecorator(ContainerDecorator)
-    .add('with required props', () =>
-      (<Dropdown name="Customize View" >
+    .add('with required props', () => (
+      <Dropdown name="Customize View" >
         <div style={{ padding: 0, height: 250 }}> Child Component </div>
-       </Dropdown>))
-    .add('with right positioning prop', () =>
-      (<Dropdown name="Customize View" positionRight>
+      </Dropdown>
+    ))
+    .add('with right positioning prop', () => (
+      <Dropdown name="Customize View" positionRight>
         <div style={{ padding: 20, height: 250 }}> Child Component </div>
-       </Dropdown>))
+      </Dropdown>
+    ))
     .add('with default props', () => <Dropdown />);
 };

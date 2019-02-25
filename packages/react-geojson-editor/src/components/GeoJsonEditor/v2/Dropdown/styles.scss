@@ -24,7 +24,8 @@
             outline: none;
             cursor: pointer;
             display: inline-block;
-            width: calc(100% - 20px); // 22 = padding-(left + right) + border-(left+right)
+            // width: calc(100% - 20px); // 22 = padding-(left + right) + border-(left+right)
+            width: 100%;
             // height: 40px;
             height: inherit;
             background: #FFFFFF;

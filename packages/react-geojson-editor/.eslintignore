@@ -1,1 +1,2 @@
-src/components/GeoJsonEditor/*
+src/components/GeoJsonEditor/v2/geojson-manager
+src/components/GeoJsonEditor/v2/GoogleMap.jsx
