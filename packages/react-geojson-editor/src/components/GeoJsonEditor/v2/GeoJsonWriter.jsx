@@ -10,7 +10,7 @@ import Creator from './geojson-manager/Creator';
 import Updator from './geojson-manager/Updator';
 
 import { PolygonDataContext } from './GoogleMap'; // @TODO
-import { PolygonController } from './PolygonController';
+// import { PolygonController } from './PolygonController';
 
 export const GeoJsonWriter = () => (
   <PolygonDataContext.Consumer>
@@ -22,7 +22,7 @@ export const GeoJsonWriter = () => (
             addNewPolygon,
         }) => (
           <React.Fragment>
-            <PolygonController />
+            {/* <PolygonController /> */}
             <Creator onCreate={addNewPolygon} />
             <Updator
               newPolygonList={newPolygonList}

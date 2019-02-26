@@ -12,6 +12,7 @@ import { GeoJsonType } from '../../../custom-types';
 import { GeoJsonController } from './geojson-manager/GeoJsonController';
 import { GeoJsonReader } from './GeoJsonReader';
 import { GeoJsonWriter } from './GeoJsonWriter';
+import { PolygonController } from './PolygonController';
 
 // @TODO refactor
 export { default as DropdownStory } from './Dropdown/story/index';
@@ -45,6 +46,7 @@ export class GeoJsonEditor extends Component {
                 mode={controlMode}
                 onToggleMode={mode => this.setState({ controlMode: mode })}
               />
+              {controlMode === GeoJsonEditorMode.EDIT && <PolygonController />}
 
               {controlMode === GeoJsonEditorMode.EDIT ? <GeoJsonWriter /> : <GeoJsonReader />}
 
