@@ -10,6 +10,8 @@ import { GeoJsonEditorMode } from '../../../utils';
 // import { Button } from './Button';
 import { GeoJsonType } from '../../../custom-types';
 import { GeoJsonController } from './geojson-manager/GeoJsonController';
+import { GeoJsonReader } from './GeoJsonReader';
+import { GeoJsonWriter } from './GeoJsonWriter';
 
 // @TODO refactor
 export { default as DropdownStory } from './Dropdown/story/index';
@@ -21,10 +23,9 @@ export class GeoJsonEditor extends Component {
 
     render() {
       const {
-        center, zoom, onSave, existingPolygons, mapHeight, mapWidth,
+        center, zoom, onSave, onDelete, existingPolygons, mapHeight, mapWidth,
       } = this.props;
       const { controlMode } = this.state;
-      // const active = controlMode === GeoJsonEditorMode.EDIT;
       return (
         <div style={{ position: 'relative' }}>
           <GoogleMapWithLoader
@@ -34,16 +35,19 @@ export class GeoJsonEditor extends Component {
             height={mapHeight}
             width={mapWidth}
           >
-            <PolygonDataProvider initialGeojson={existingPolygons} onSave={onSave}>
+            <PolygonDataProvider
+              initialGeojson={existingPolygons}
+              onSave={onSave}
+              onDelete={onDelete}
+            >
+
               <GeoJsonController
                 mode={controlMode}
                 onToggleMode={mode => this.setState({ controlMode: mode })}
               />
-              {/*
-                    active ?
-                    <GeoJsonUpdator> <PolygonEditor /> </GeoJsonUpdator> :
-                    <GeoJsonViewer />
-                */}
+
+              {controlMode === GeoJsonEditorMode.EDIT ? <GeoJsonWriter /> : <GeoJsonReader />}
+
             </PolygonDataProvider>
           </GoogleMapWithLoader>
         </div>
@@ -62,8 +66,8 @@ GeoJsonEditor.propTypes = {
   googleMapKey: PropTypes.string,
   //   initialMode: PropTypes.string,
   existingPolygons: GeoJsonType,
+  onDelete: PropTypes.func,
   onSave: PropTypes.func,
-  //   onCreate: PropTypes.func,
   //   onUpdate: PropTypes.func,
   mapHeight: PropTypes.number,
   mapWidth: PropTypes.oneOfType([
@@ -79,5 +83,6 @@ GeoJsonEditor.defaultProps = {
   //   initialMode: GeoJsonEditorMode.VIEW,
   mapHeight: 500,
   mapWidth: '100%',
-  onSave: () => { },
+  onDelete: () => {},
+  onSave: () => {},
 };

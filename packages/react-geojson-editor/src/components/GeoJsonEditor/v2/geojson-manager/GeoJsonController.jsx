@@ -6,7 +6,14 @@ import { Button } from '../Button';
 import { PolygonDataContext } from '../GoogleMap'; // @TODO
 import Controls from './Controls';
 
-
+/**
+ * - show ui for enabling polygon editing capability
+ * - dispatch actions for
+ *      - persting new changes
+ *      - remove new changes
+ *      - toggle edit mode
+ * @param {*} props
+ */
 export const GeoJsonController = ({
   mode, onToggleMode,
 }) => (
