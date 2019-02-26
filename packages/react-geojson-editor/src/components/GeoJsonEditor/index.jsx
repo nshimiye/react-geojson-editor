@@ -1,4 +1,4 @@
-import component from './v2/index';
+import component from './component';
 
-export { GeoJsonEditor } from './v2/index';
+export { GeoJsonEditor } from './component';
 export default component;

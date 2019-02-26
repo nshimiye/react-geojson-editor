@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { GeoJsonEditor } from './v2/index';
+import { GeoJsonEditor } from './component';
 import { GeoJsonType } from '../../custom-types';
 
 export class GeoJsonEditorStore extends Component {
