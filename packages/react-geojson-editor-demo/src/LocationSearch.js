@@ -320,10 +320,10 @@ console.log(center);
 
 return (<div style={{ width: 500, height: 500 }}>
   <GeoJsonEditor
-    googleMapKey="AIzaSyD_HADQAEoHkZhBhqh-oDaiLHuRyHbyP9c"
-    initialMode="VIEW"
-  //   existingPolygons={location ? location.geojson : null}
-  //   center={location ? location.center : { lat: 51.528308, lng: -0.7817765 }}
+    googleMapKey={process.env.REACT_APP_GOOGLE_MAP_KEY}
+    // initialMode="VIEW"
+    //   existingPolygons={location ? location.geojson : null}
+    //   center={location ? location.center : { lat: 51.528308, lng: -0.7817765 }}
     center={center}
     zoom={10}
     onSave={onSaveGeojson}
