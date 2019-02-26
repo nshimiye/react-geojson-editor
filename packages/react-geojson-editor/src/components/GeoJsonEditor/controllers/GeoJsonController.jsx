@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GeoJsonEditorMode } from '../../../../utils';
-import { Dropdown } from '../Dropdown';
-import { Button } from '../Button';
-import { PolygonDataContext } from '../GoogleMap'; // @TODO
+import { GeoJsonEditorMode } from '../../../utils';
+import { Dropdown } from '../../Dropdown';
+import { Button } from '../../Button';
+import { PolygonDataContext } from '../google-map'; // @TODO
 import Controls from './Controls';
 
 /**

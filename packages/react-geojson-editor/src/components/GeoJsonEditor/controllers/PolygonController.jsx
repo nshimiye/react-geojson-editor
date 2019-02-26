@@ -3,11 +3,11 @@ import React from 'react';
 // import Reader from './geojson-manager/Reader';
 
 // import { GeoJsonEditorMode } from '../../../../utils';
-import { Dropdown } from './Dropdown';
-import { Button } from './Button';
-import Controls from './geojson-manager/Controls';
+import { Dropdown } from '../../Dropdown';
+import { Button } from '../../Button';
+import Controls from './Controls';
 // import { PolygonDataContext } from '../GoogleMap'; // @TODO
-import { PolygonDataContext } from './GoogleMap'; // @TODO
+import { PolygonDataContext } from '../google-map'; // @TODO
 
 /**
  * - show ui for enabling polygon mutation operations

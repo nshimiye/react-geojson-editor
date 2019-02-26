@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 // import { Button } from './components/Button';
 // import { Dropdown } from './components/Dropdown';
 
-import { GeoJsonEditorDemo } from './components/GeoJsonEditor/demo';
+import { GeoJsonEditorDemo } from './demos/GeoJsonEditor/index';
 
 const root = document.getElementById('root');
 

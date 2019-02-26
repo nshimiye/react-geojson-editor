@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { GeoJsonEditor } from './component';
+import { GeoJsonEditor } from '../../components/GeoJsonEditor';
 import { GeoJsonType } from '../../custom-types';
 
 export class GeoJsonEditorStore extends Component {
@@ -28,6 +28,7 @@ export class GeoJsonEditorStore extends Component {
   // }
 
   onSaveGeojson(geojson) {
+    console.log('[GeoJsonEditorStore] onSaveGeojson', geojson); // eslint-disable-line no-console
     this.setState({ geojson });
   }
 

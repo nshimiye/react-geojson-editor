@@ -1,3 +1,5 @@
+/* global google */
+/* eslint-disable react/no-did-mount-set-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,19 +9,20 @@ import { fetchJsScript } from '../../../utils';
 const LOADING_STATE_NONE = 'NONE';
 const LOADING_STATE_BEGIN = 'BEGIN';
 const LOADING_STATE_LOADED = 'LOADED';
-export const ScriptContext = React.createContext(null); // context is the global window.google object set when the script has been loaded
+
+// context is the global window.google object set when the script has been loaded
+export const ScriptContext = React.createContext(null);
 
 export class ScriptLoader extends Component {
-    isUnmounted = false
+  constructor(props) {
+    super(props);
+    this.handleLoaded = this.handleLoaded.bind(this);
+  }
     state = {
       loadingState: LOADING_STATE_NONE,
       google: null,
     };
 
-    constructor(props) {
-      super(props);
-      this.handleLoaded = this.handleLoaded.bind(this);
-    }
     componentDidMount() {
       const { scriptUrl } = this.props;
       const { loadingState } = this.state;
@@ -33,6 +36,7 @@ export class ScriptLoader extends Component {
     componentWillUnmount() {
       this.isUnmounted = true;
     }
+    isUnmounted = false
 
     handleLoaded(google) {
       if (this.isUnmounted) {
@@ -50,14 +54,17 @@ export class ScriptLoader extends Component {
 
       if (!google) { return <div> Error Loading Script </div>; }
 
-      return (<ScriptContext.Provider value={google}>
-        {this.props.children}
-              </ScriptContext.Provider>);
+      return (
+        <ScriptContext.Provider value={google}>
+          {this.props.children}
+        </ScriptContext.Provider>
+      );
     }
 }
 
 ScriptLoader.propTypes = {
-    scriptUrl: PropTypes.string.isRequired,
-}
+  children: PropTypes.node.isRequired,
+  scriptUrl: PropTypes.string.isRequired,
+};
 
 export default ScriptLoader;

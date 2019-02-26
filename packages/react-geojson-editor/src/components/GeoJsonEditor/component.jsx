@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GoogleMapWithLoader, { PolygonDataProvider } from './GoogleMap';
+import { GoogleMapWithLoader, PolygonDataProvider } from './google-map';
 // import Reader from './geojson-manager/Reader';
-import { GeoJsonEditorMode } from '../../../utils';
-import { GeoJsonType } from '../../../custom-types';
+import { GeoJsonEditorMode } from '../../utils';
+import { GeoJsonType } from '../../custom-types';
 import { PolygonController, GeoJsonController } from './controllers';
 import { GeoJsonWriter } from './writer';
 import { GeoJsonReader } from './reader';
-
-// @TODO refactor
-export { default as DropdownStory } from './Dropdown/story/index';
 
 export class GeoJsonEditor extends Component {
     state = {

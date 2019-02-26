@@ -9,7 +9,7 @@ import React from 'react';
 import Creator from './Creator';
 import Updator from './Updator';
 
-import { PolygonDataContext } from './GoogleMap'; // @TODO
+import { PolygonDataContext } from '../google-map'; // @TODO
 
 export const GeoJsonWriter = () => (
   <PolygonDataContext.Consumer>

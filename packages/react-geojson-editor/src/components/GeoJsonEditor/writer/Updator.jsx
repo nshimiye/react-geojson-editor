@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { GoogleMapContext } from '../GoogleMap';
-import { GMPolygonType } from '../../../../custom-types';
+import { GoogleMapContext } from '../google-map';
+import { GMPolygonType } from '../../../custom-types';
 
 export default class Updator extends Component {
     static contextType = GoogleMapContext;

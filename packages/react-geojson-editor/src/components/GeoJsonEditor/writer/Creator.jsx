@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { GoogleMapContext } from '../GoogleMap';
+import { GoogleMapContext } from '../google-map';
 
 // @TODO where should I put the code for selecting/unSelecting new polygons ?
 // Maybe inside Updator component

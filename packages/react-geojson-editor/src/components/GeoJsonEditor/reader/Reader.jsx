@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { GoogleMapContext } from '../GoogleMap';
-import { GMPolygonType, GMDataType } from '../../../../custom-types';
+import { GoogleMapContext } from '../google-map';
+import { GMPolygonType, GMDataType } from '../../../custom-types';
 
 export default class Reader extends Component {
     static contextType = GoogleMapContext;
