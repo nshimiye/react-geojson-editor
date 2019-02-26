@@ -1,6 +1,6 @@
 {
   "name": "react-geojson-editor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create/Edit geojson based shapes and save updates as geojson",
   "keywords": [
     "geojson",
@@ -46,9 +46,9 @@
   },
   "peerDependencies": {
     "classnames": "2.2.6",
+    "prop-types": "15.7.2",
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "prop-types": "15.7.2",
     "scriptjs": "2.5.9"
   }
 }
