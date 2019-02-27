@@ -3,9 +3,7 @@
 Allowing you to draw and edit shapes on maps!
 
 [![Travis][build-badge]][build]
-
 [![npm package][npm-badge]][npm]
-
 [![Coveralls][coveralls-badge]][coveralls]
 
 ## Features
