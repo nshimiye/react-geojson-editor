@@ -50,7 +50,7 @@ export const Demo = () => (
       <div style={{ width: 1000, height: 700 }}>
         <GeoJsonEditor
           initialMode="VIEW"
-          googleMapKey="AIzaSyD_HADQAEoHkZhBhqh-oDaiLHuRyHbyP9c"
+          googleMapKey={process.env.GOOGLE_MAP_KEY}
           existingPolygons={geojson}
           center={center}
           zoom={10}
