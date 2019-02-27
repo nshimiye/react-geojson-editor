@@ -23,7 +23,7 @@ export function GMPolygonType(props, propName, componentName) {
   if (!props[propName]) {
     // @TODO this error is misleading
     return new Error(`Invalid prop \`${propName}\` supplied to` +
-            ` \`${componentName}\`. Validation failed.`);
+      ` \`${componentName}\`. Validation failed.`);
   }
 }
 
