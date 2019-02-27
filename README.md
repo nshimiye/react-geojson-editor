@@ -14,19 +14,3 @@ Allowing you to draw and edit shapes on maps!
 * [x] view mode
 * [x] Drawing hollow polygons
 * [x] Center map
-
-## Usage
-
-```
-import React from 'react';
-import GeoJsonEditor from 'react-geojson-editor';
-
-<GeoJsonEditor
-    googleMapKey="google api key"
-    existingPolygons={GeoJson}
-    center={{ lng: number, lat: number }}
-    zoom={5}
-    mapHeight={700}
-    onSave={(geojson, area) => {/* Ex: save updated geojson to the backend */}}
-/>
-```
