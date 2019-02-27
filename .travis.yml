@@ -9,6 +9,9 @@ cache:
   directories:
     - node_modules
 
+install:
+  - npm i -g lerna jest
+  - lerna bootstrap
 matrix:
   include:
     - name: "GeoJsonEditor"
