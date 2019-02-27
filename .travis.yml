@@ -1,0 +1,21 @@
+branches:
+  only:
+  - master
+
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+
+matrix:
+  include:
+    - name: "GeoJsonEditor"
+      env: PACKAGE_LOCATION=packages/react-geojson-editor
+    - name: "Demo"
+      env: PACKAGE_LOCATION=packages/react-geojson-editor-demo
+script: 
+  - cd $PACKAGE_LOCATION
+  - npm test
+  - npm run build

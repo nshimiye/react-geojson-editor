@@ -10,7 +10,7 @@
     "maps"
   ],
   "author": "Marcellin Nshimiyimana <marcellin2@gmail.com>",
-  "homepage": "https://marcellin.me/os/typescript/react-geojson-editor-demo",
+  "homepage": "https://nshimiye.github.io/react-geojson-editor/demo",
   "license": "MIT",
   "main": "lib/index.js",
   "directories": {
@@ -22,13 +22,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nshimiye/react-geojson-editor-demo.git"
+    "url": "git+https://github.com/nshimiye/react-geojson-editor.git"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build &&  mv build build_tmp && mkdir build && mv build_tmp build/demo",
+    "deploy": "gh-pages -d build"
   },
   "bugs": {
     "url": "https://github.com/nshimiye/react-geojson-editor-demo/issues"
@@ -54,5 +56,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
