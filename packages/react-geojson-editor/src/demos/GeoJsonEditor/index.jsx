@@ -63,13 +63,3 @@ export const Demo = () => (
 
 export const GeoJsonEditorDemo = Demo;
 export default Demo;
-
-<GeoJsonEditor
-    googleMapKey={process.env.GOOGLE_MAP_KEY}
-    initialMode="VIEW"
-    existingPolygons={location ? location.geojson : undefined}
-    center={location ? location.center : undefined}
-    zoom={11}
-    mapHeight={700}
-    onSave={(geojson, area) => {/* Ex: save updated geojson to the backend */}}
-/>
