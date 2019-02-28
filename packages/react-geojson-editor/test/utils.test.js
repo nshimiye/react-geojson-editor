@@ -1,20 +1,21 @@
+import scriptjs from "scriptjs";
 import { isPathClockwise, fetchJsScript } from "../src/utils";
 
-
-export const google =  {
-    maps: {
-      geometry: {
-        spherical: {}
-      }
+export const google = {
+  maps: {
+    geometry: {
+      spherical: {}
     }
-  };
+  }
+};
 
+// @TODO find out how to reset mock
 jest.mock('scriptjs', () => {
   return jest.fn()
-  .mockImplementationOnce((url, c, e) => c())
-  .mockImplementationOnce((url, c, e) => {
-    throw new Error('could not load script');
-  });
+    .mockImplementationOnce((url, c) => c())
+    .mockImplementationOnce((url, c) => {
+      throw new Error('could not load script');
+    });
 });
 
 describe('isPathClockwise', () => {
@@ -30,7 +31,7 @@ describe('isPathClockwise', () => {
     const path = { getArray: () => [4, 3, 2, 1] }
     expect(
       typeof isPathClockwise(google, path)
-    ).toEqual('boolean');    
+    ).toEqual('boolean');
   })
 })
 
