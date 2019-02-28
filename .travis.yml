@@ -23,7 +23,7 @@ matrix:
 script: 
   - cd $PACKAGE_LOCATION
   - npm i
-  - [ ! -z "$EXTRA_NPM_INSTALLS" ] && echo "$EXTRA_NPM_INSTALLS" # run only if script exists
+  - echo "$EXTRA_NPM_INSTALLS" # run only if script exists
   # - [ ! -z "$EXTRA_NPM_INSTALLS" ] && sh $EXTRA_NPM_INSTALLS # run only if script exists
   - npm test
   - npm run build
