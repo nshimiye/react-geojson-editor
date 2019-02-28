@@ -18,6 +18,7 @@ export const GeoJsonEditorMode = {
  * @return {boolean}
  */
 export function isPathClockwise(google, path) {
+  
   const ring = path.getArray();
   // const ring = [...path.getArray()];
   // const reversev2 = ring.reverse;
@@ -28,6 +29,7 @@ export function isPathClockwise(google, path) {
 
   // const outerArea2 = google.maps.geometry.spherical.computeSignedArea(reversedRing);
   // console.log('outerAreaouterArea 2', outerArea2, reversedRing.map(p => [p.lng(), p.lat()]));
+  // console.log('dfdfdfdfdfdfdfdfdfdf', outerArea);
 
   return outerArea > 0;
 }
