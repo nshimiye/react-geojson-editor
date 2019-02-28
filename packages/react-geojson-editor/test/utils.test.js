@@ -37,11 +37,6 @@ describe('isPathClockwise', () => {
 
 describe('fetchJsScript', () => {
 
-  beforeAll(() => {
-    // scriptjsMock.mockClear();
-    // console.log('4545454545454545455454545');
-  })
-
   it('calls the callback function', () => {
     const callback = jest.fn();
     fetchJsScript('', callback, jest.fn());
