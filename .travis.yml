@@ -22,8 +22,8 @@ matrix:
       env: PACKAGE_LOCATION=packages/react-geojson-editor-demo EXTRA_NPM_INSTALLS=ci/na.sh
 script: 
   - cd $PACKAGE_LOCATION
-  - npm i -- --coverage
+  - npm i
   - echo "$EXTRA_NPM_INSTALLS" # run only if script exists
   - bash $EXTRA_NPM_INSTALLS # run only if script exists
-  - npm test
+  - npm test -- --coverage
   - npm run build
