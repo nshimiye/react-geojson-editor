@@ -17,11 +17,14 @@ install:
 matrix:
   include:
     - name: "GeoJsonEditor"
-      env: PACKAGE_LOCATION=packages/react-geojson-editor
+      env:
+        - PACKAGE_LOCATION=packages/react-geojson-editor
+        - EXTRA_NPM_INSTALLS=./ci/install-peer-dep.sh
     - name: "Demo"
       env: PACKAGE_LOCATION=packages/react-geojson-editor-demo
 script: 
   - cd $PACKAGE_LOCATION
   - npm i
+  - [ ! -z "$EXTRA_NPM_INSTALLS" ] && sh $EXTRA_NPM_INSTALLS # run only if script exists
   - npm test
   - npm run build
