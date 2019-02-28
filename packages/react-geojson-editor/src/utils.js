@@ -18,7 +18,6 @@ export const GeoJsonEditorMode = {
  * @return {boolean}
  */
 export function isPathClockwise(google, path) {
-  
   const ring = path.getArray();
   // const ring = [...path.getArray()];
   // const reversev2 = ring.reverse;
@@ -42,11 +41,11 @@ export function fetchJsScript(url, onloadFunction, onErrorFunction) {
     onErrorFunction(error);
   }
 }
-export function fetchJsScriptCustom(url, onloadFunction, onErrorFunction) {
-  const tag = document.createElement('script');
-  if (onloadFunction) { tag.onload = onloadFunction; }
-  if (onErrorFunction) { tag.onerror = onErrorFunction; }
-  tag.async = true;
-  tag.src = url;
-  document.currentScript.parentNode.insertBefore(tag, document.currentScript);
-}
+// export function fetchJsScriptCustom(url, onloadFunction, onErrorFunction) {
+//   const tag = document.createElement('script');
+//   if (onloadFunction) { tag.onload = onloadFunction; }
+//   if (onErrorFunction) { tag.onerror = onErrorFunction; }
+//   tag.async = true;
+//   tag.src = url;
+//   document.currentScript.parentNode.insertBefore(tag, document.currentScript);
+// }

@@ -55,13 +55,3 @@ describe('fetchJsScript', () => {
   })
 });
 
-describe('fetchJsScriptCustom', () => {
-  // export function fetchJsScriptCustom(url, onloadFunction, onErrorFunction) {
-  //   const tag = document.createElement('script');
-  //   if (onloadFunction) { tag.onload = onloadFunction; }
-  //   if (onErrorFunction) { tag.onerror = onErrorFunction; }
-  //   tag.async = true;
-  //   tag.src = url;
-  //   document.currentScript.parentNode.insertBefore(tag, document.currentScript);
-  // }
-});
