@@ -10,8 +10,9 @@ cache:
     - node_modules
 
 install:
-  - npm i -g lerna jest
+  - npm i -g lerna
   - lerna bootstrap
+
 matrix:
   include:
     - name: "GeoJsonEditor"
@@ -20,5 +21,6 @@ matrix:
       env: PACKAGE_LOCATION=packages/react-geojson-editor-demo
 script: 
   - cd $PACKAGE_LOCATION
+  - npm i
   - npm test
   - npm run build
