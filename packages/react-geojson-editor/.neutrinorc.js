@@ -3,7 +3,7 @@ module.exports = {
   use: [
     '@neutrinojs/airbnb',
     '@neutrinojs/react-components',
-    '@neutrinojs/jest',
+    ['@neutrinojs/jest', { setupFiles: [ '<rootDir>/test/helpers/setup.js' ] }],
     (neutrino) => {
       neutrino.config.module
       .rule('add-css-to-jsx')
