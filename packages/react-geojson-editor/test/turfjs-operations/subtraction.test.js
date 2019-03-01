@@ -1,29 +1,108 @@
-// import TURFDifference from '@turf/difference';
-// // import { polygon as TURFPolygon } from '@turf/helpers';
+import { findLargest, subtractPolygons } from "../../src/turfjs-operations/subtraction";
 
-// // START helpers
-// export function findLargest(polygons) {
-//   // @TODO use area to decide on which polygon is the largest
-//   return polygons[0];
-// }
-// // END helpers
 
-// /**
-//  * Create hollow polygon
-//  * @see {@link http://turfjs.org/docs/#difference}
-//  * @param {Array<GeoJson<Polygon>>} polygons
-//  * @return {google.maps.Polygon} largest polygon - the rest
-//  */
-// export function subtractPolygons(polygons) {
-//   const largestPolygon = findLargest(polygons); // assume findLargest does NOT mutate its input
+describe('helpers - findLargest', () => {
+  it('returns largest polygon out of the provided list', () => {
+    // Arrange
+    const expectedPolygon = {
+      "type": "Feature",
+      "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+              [
+                  [-15.0, -15.0],
+                  [10.0, -10.0],
+                  [10.0, 10.0],
+                  [-15.0, -15.0]
+              ]
+          ]
+      }
+    }
 
-//   const subtracted = polygons.filter(p => p !== largestPolygon)
-//     .reduce(TURFDifference, largestPolygon);
-//   // console.log('difference', { ...subtracted });
-//   return subtracted;
-// }
+    const polygonList = [
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [-9.0, -10.0],
+                    [10.0, -10.0],
+                    [10.0, 10.0],
+                    [-9.0, -10.0]
+                ]
+            ]
+        }
+      },
+      expectedPolygon,
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [-10.0, -10.0],
+                    [10.0, -10.0],
+                    [10.0, 10.0],
+                    [-10.0, -10.0]
+                ]
+            ]
+        }
+      }
+    ];
+
+    // Act
+    const outputPolygon = findLargest(polygonList);
+
+    // Asset
+    expect(outputPolygon).toEqual(expectedPolygon);
+  })
+})
 
 describe('subtraction', () => {
-  it('generates a new polygon')
+
+  it('generates a new polygon', () => {
+    
+    const polygonList = [
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [-9.0, -10.0],
+                    [10.0, -10.0],
+                    [10.0, 10.0],
+                    [-9.0, -10.0]
+                ]
+            ]
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [-20.0, -20.0],
+                    [20.0, -20.0],
+                    [20.0, 20.0],
+                    [-20.0, -20.0]
+                ]
+            ]
+        }
+      }
+    ];
+
+    // Act
+    const outputPolygon = subtractPolygons(polygonList);
+
+    // Asset
+    // should a polygon
+    expect(outputPolygon).toHaveProperty('geometry.type', 'Polygon');
+    // should not be part of the existing polygons
+    expect(polygonList).not.toContain(outputPolygon);
+
+  })
 })
 

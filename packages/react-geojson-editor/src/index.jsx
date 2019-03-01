@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/extensions */
 import { render } from 'react-dom';
 // import HelloWorld from './components/HelloWorld';
 // import { Button } from './components/Button';

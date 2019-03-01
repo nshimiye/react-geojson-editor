@@ -30,7 +30,7 @@ export function GMPolygonType(props, propName, componentName) {
 
 /**
  * check to make sure props[propName] is of type GeoJson
-
+ * https://tools.ietf.org/html/rfc7946#section-3.3
 example geojson => {
   "type": "FeatureCollection",
   "features": [{

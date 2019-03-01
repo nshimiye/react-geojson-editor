@@ -3,7 +3,7 @@ class Polygon {};
 
 const geometry = {
     spherical: {
-        computeSignedArea: () => 0
+        computeSignedArea: () => 0,
     }
 };
 
