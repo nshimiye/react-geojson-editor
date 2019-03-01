@@ -50,7 +50,7 @@ example geojson => {
  */
 export function GeoJsonType(props, propName, componentName) {
   if (
-      typeof props[propName] === 'object' &&
+    typeof props[propName] === 'object' &&
       props[propName].type === 'FeatureCollection' &&
       Array.isArray(props[propName].features)
   ) {
