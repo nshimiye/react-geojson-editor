@@ -20,7 +20,7 @@ install:
 matrix:
   include:
     - name: "GeoJsonEditor"
-      env: PACKAGE_LOCATION=packages/react-geojson-editor EXTRA_NPM_INSTALLS=ci/install-peer-dep.sh CODECOV_TOKEN="66f7d8f9-3766-4ea6-ac36-9a901e0d65a2"
+      env: PACKAGE_LOCATION=packages/react-geojson-editor EXTRA_NPM_INSTALLS=ci/install-peer-dep.sh"
     - name: "Demo"
       env: PACKAGE_LOCATION=packages/react-geojson-editor-demo EXTRA_NPM_INSTALLS=ci/na.sh
 script: 
