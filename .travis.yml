@@ -11,7 +11,7 @@ cache:
     - node_modules
 
 before_install:
-  - npm install -g codecov.io coveralls
+  - npm install -g codecov coveralls
 
 install:
   - npm i -g lerna
@@ -20,17 +20,15 @@ install:
 matrix:
   include:
     - name: "GeoJsonEditor"
-      env: PACKAGE_LOCATION=packages/react-geojson-editor EXTRA_NPM_INSTALLS=ci/install-peer-dep.sh"
+      env: PACKAGE_LOCATION=packages/react-geojson-editor EXTRA_UPLOAD_COV=ci/upload-coverage.sh"
     - name: "Demo"
-      env: PACKAGE_LOCATION=packages/react-geojson-editor-demo EXTRA_NPM_INSTALLS=ci/na.sh
+      env: PACKAGE_LOCATION=packages/react-geojson-editor-demo EXTRA_UPLOAD_COV=ci/na.sh
 script: 
   - cd $PACKAGE_LOCATION
   - npm i
-  - echo "$EXTRA_NPM_INSTALLS" # run only if script exists
   - bash $EXTRA_NPM_INSTALLS # run only if script exists
   - npm test -- --coverage
   - npm run build
 
 after_success:
-  - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - bash $EXTRA_UPLOAD_COV # send coverage to analysis sites

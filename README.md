@@ -1,9 +1,10 @@
 # react-geojson-editor
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/nshimiye/react-geojson-editor.svg)](https://greenkeeper.io/)
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
+[![codecov](https://codecov.io/gh/nshimiye/react-geojson-editor/branch/master/graph/badge.svg)](https://codecov.io/gh/nshimiye/react-geojson-editor)
+[![Greenkeeper badge](https://badges.greenkeeper.io/nshimiye/react-geojson-editor.svg)](https://greenkeeper.io/)
 
 Allowing you to draw and edit shapes on maps!
 
