@@ -13,7 +13,6 @@ describe('isPathClockwise', () => {
   let savedFunction;
   beforeEach(() => {
     savedFunction = google.maps.geometry.spherical.computeSignedArea;
-    google.maps.geometry.spherical.computeSignedArea = jest.fn(() => 0);
   });
 
   afterEach(() => {    
@@ -22,10 +21,14 @@ describe('isPathClockwise', () => {
 
   // @NOTE certifying that we trust computeSignedArea to do the right thing
   it('calls computeSignedArea to find area of a path', () => {
+    // Arrange
     const path = { getArray: () => [4, 3, 2, 1] }
+    google.maps.geometry.spherical.computeSignedArea = jest.fn(() => 0);
     
+    // Act
     isPathClockwise(google, path)
 
+    // Assert
     expect(google.maps.geometry.spherical.computeSignedArea).toHaveBeenCalled();
   });
 
