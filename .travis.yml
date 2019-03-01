@@ -26,7 +26,6 @@ matrix:
 script: 
   - cd $PACKAGE_LOCATION
   - npm i
-  - bash $EXTRA_NPM_INSTALLS # run only if script exists
   - npm test -- --coverage
   - npm run build
 
