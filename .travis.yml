@@ -10,6 +10,9 @@ cache:
   directories:
     - node_modules
 
+before_install:
+  - npm install -g codecov.io coveralls
+
 install:
   - npm i -g lerna
   - lerna bootstrap
@@ -17,7 +20,7 @@ install:
 matrix:
   include:
     - name: "GeoJsonEditor"
-      env: PACKAGE_LOCATION=packages/react-geojson-editor EXTRA_NPM_INSTALLS=ci/install-peer-dep.sh
+      env: PACKAGE_LOCATION=packages/react-geojson-editor EXTRA_NPM_INSTALLS=ci/install-peer-dep.sh CODECOV_TOKEN="66f7d8f9-3766-4ea6-ac36-9a901e0d65a2"
     - name: "Demo"
       env: PACKAGE_LOCATION=packages/react-geojson-editor-demo EXTRA_NPM_INSTALLS=ci/na.sh
 script: 
@@ -27,3 +30,7 @@ script:
   - bash $EXTRA_NPM_INSTALLS # run only if script exists
   - npm test -- --coverage
   - npm run build
+
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
