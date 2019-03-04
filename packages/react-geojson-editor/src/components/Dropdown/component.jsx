@@ -54,8 +54,8 @@ export class Dropdown extends Component {
             {/* <OutsideClickHandler onOutsideClick={this.onBlurClose}> */}
             <div
               className={open ?
-                                classnames(DropdownStyles.dropdownButton, DropdownStyles.open) :
-                                DropdownStyles.dropdownButton
+                                classnames(DropdownStyles.dropdownButton, DropdownStyles.open, 'toggle-button') :
+                                classnames(DropdownStyles.dropdownButton, 'toggle-button')
                             }
               tabIndex="0"
               onClick={this.toggleOpen}
