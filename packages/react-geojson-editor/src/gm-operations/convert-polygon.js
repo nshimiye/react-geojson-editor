@@ -64,7 +64,6 @@ export function convertGeojsonToGMData(geojson, { google }) {
  * @return {google.maps.Polygon}
  */
 export function createUIPolygon(dataPolygon, { google }) {
-  
   const [first, ...pathList] = dataPolygon.getArray(); // polygon can have multiple paths
   const isFirstClockwise = isPathClockwise(google, first);
 
