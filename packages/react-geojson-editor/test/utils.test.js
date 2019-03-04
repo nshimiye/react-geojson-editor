@@ -10,14 +10,9 @@ jest.mock('scriptjs', () => {
 });
 
 describe('isPathClockwise', () => {
-  let savedFunction;
   beforeEach(() => {
-    savedFunction = google.maps.geometry.spherical.computeSignedArea;
+    google.maps.geometry.spherical.computeSignedArea.mockClear();
   });
-
-  afterEach(() => {    
-    google.maps.geometry.spherical.computeSignedArea = savedFunction;
-  })
 
   // @NOTE certifying that we trust computeSignedArea to do the right thing
   it('calls computeSignedArea to find area of a path', () => {
