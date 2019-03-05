@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button has not changed 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GeoJsonEditor
+    center={
+      Object {
+        "lat": 40.674,
+        "lng": -73.945,
+      }
+    }
+    existingPolygons={null}
+    googleMapKey={undefined}
+    mapHeight={500}
+    mapWidth="100%"
+    onDelete={[Function]}
+    onSave={[Function]}
+    zoom={5}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <GoogleMapWithLoader
+        center={
+          Object {
+            "lat": 40.674,
+            "lng": -73.945,
+          }
+        }
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=undefined&v=3.exp&libraries=geometry,drawing,places"
+        height={500}
+        width="100%"
+        zoom={5}
+      >
+        <PolygonDataProvider
+          initialGeojson={null}
+          onDelete={[Function]}
+          onSave={[Function]}
+        >
+          <Unknown
+            mode="VIEW"
+            onToggleMode={[Function]}
+          />
+          <Unknown />
+        </PolygonDataProvider>
+      </GoogleMapWithLoader>,
+      "style": Object {
+        "position": "relative",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "center": Object {
+          "lat": 40.674,
+          "lng": -73.945,
+        },
+        "children": <PolygonDataProvider
+          initialGeojson={null}
+          onDelete={[Function]}
+          onSave={[Function]}
+        >
+          <Unknown
+            mode="VIEW"
+            onToggleMode={[Function]}
+          />
+          <Unknown />
+        </PolygonDataProvider>,
+        "googleMapURL": "https://maps.googleapis.com/maps/api/js?key=undefined&v=3.exp&libraries=geometry,drawing,places",
+        "height": 500,
+        "width": "100%",
+        "zoom": 5,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Unknown
+              mode="VIEW"
+              onToggleMode={[Function]}
+            />,
+            false,
+            <Unknown />,
+          ],
+          "initialGeojson": null,
+          "onDelete": [Function],
+          "onSave": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "mode": "VIEW",
+              "onToggleMode": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          false,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <GoogleMapWithLoader
+          center={
+            Object {
+              "lat": 40.674,
+              "lng": -73.945,
+            }
+          }
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=undefined&v=3.exp&libraries=geometry,drawing,places"
+          height={500}
+          width="100%"
+          zoom={5}
+        >
+          <PolygonDataProvider
+            initialGeojson={null}
+            onDelete={[Function]}
+            onSave={[Function]}
+          >
+            <Unknown
+              mode="VIEW"
+              onToggleMode={[Function]}
+            />
+            <Unknown />
+          </PolygonDataProvider>
+        </GoogleMapWithLoader>,
+        "style": Object {
+          "position": "relative",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "center": Object {
+            "lat": 40.674,
+            "lng": -73.945,
+          },
+          "children": <PolygonDataProvider
+            initialGeojson={null}
+            onDelete={[Function]}
+            onSave={[Function]}
+          >
+            <Unknown
+              mode="VIEW"
+              onToggleMode={[Function]}
+            />
+            <Unknown />
+          </PolygonDataProvider>,
+          "googleMapURL": "https://maps.googleapis.com/maps/api/js?key=undefined&v=3.exp&libraries=geometry,drawing,places",
+          "height": 500,
+          "width": "100%",
+          "zoom": 5,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Unknown
+                mode="VIEW"
+                onToggleMode={[Function]}
+              />,
+              false,
+              <Unknown />,
+            ],
+            "initialGeojson": null,
+            "onDelete": [Function],
+            "onSave": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "mode": "VIEW",
+                "onToggleMode": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

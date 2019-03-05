@@ -40,6 +40,7 @@ class Data {
 class Polygon {
     getPaths = getPathsMock;
 };
+class Map {};
 
 const geometry = {
     spherical: {
@@ -47,8 +48,14 @@ const geometry = {
     }
 };
 
+const MapTypeControlStyle = {
+    DROPDOWN_MENU: 'DROPDOWN_MENU',
+};
+
 export const google = {
     maps: {
+        MapTypeControlStyle,
+        Map,
         Data,
         Polygon,
         geometry,

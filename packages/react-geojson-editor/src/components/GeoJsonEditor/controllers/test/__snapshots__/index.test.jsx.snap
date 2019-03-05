@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button has not changed 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    mode="VIEW"
+    onToggleMode={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <Button
+        onClick={[Function]}
+        style={
+          Object {
+            "borderRadius": 2,
+            "boxShadow": "rgba(0, 0, 0, 0.3) 0px 2px 6px",
+            "width": 120,
+          }
+        }
+        title="Turn on Edit mode"
+      >
+        Create / Edit
+      </Button>,
+      "title": "Managing geojson changes",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": "Create / Edit",
+        "onClick": [Function],
+        "style": Object {
+          "borderRadius": 2,
+          "boxShadow": "rgba(0, 0, 0, 0.3) 0px 2px 6px",
+          "width": 120,
+        },
+        "title": "Turn on Edit mode",
+      },
+      "ref": null,
+      "rendered": "Create / Edit",
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <Button
+          onClick={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "boxShadow": "rgba(0, 0, 0, 0.3) 0px 2px 6px",
+              "width": 120,
+            }
+          }
+          title="Turn on Edit mode"
+        >
+          Create / Edit
+        </Button>,
+        "title": "Managing geojson changes",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Create / Edit",
+          "onClick": [Function],
+          "style": Object {
+            "borderRadius": 2,
+            "boxShadow": "rgba(0, 0, 0, 0.3) 0px 2px 6px",
+            "width": 120,
+          },
+          "title": "Turn on Edit mode",
+        },
+        "ref": null,
+        "rendered": "Create / Edit",
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

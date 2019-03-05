@@ -30,8 +30,11 @@ export function GoogleMapWithLoader({
   );
 }
 
-
-export default function GoogleMap({
+/**
+ * provide child components, with access to map instance
+ * @param {} props
+ */
+export function GoogleMap({
   google, children, center, zoom, height, width,
 }) {
   // in react-google-maps, this where they add event listeners
@@ -48,6 +51,7 @@ export default function GoogleMap({
     </ScriptContext.Provider>
   );
 }
+export default GoogleMap;
 
 GoogleMapWithLoader.propTypes = {
   googleMapURL: PropTypes.string.isRequired,
@@ -66,7 +70,7 @@ GoogleMapWithLoader.propTypes = {
 
 GoogleMap.propTypes = {
   google: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   center: PropTypes.shape({
     lat: PropTypes.number,
     lng: PropTypes.number,

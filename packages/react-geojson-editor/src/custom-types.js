@@ -51,11 +51,14 @@ example geojson => {
 export function GeoJsonType(props, propName, componentName) {
   if (
     typeof props[propName] === 'object' &&
-      props[propName].type === 'FeatureCollection' &&
-      Array.isArray(props[propName].features)
+    props[propName] &&
+    props[propName].type === 'FeatureCollection' &&
+    Array.isArray(props[propName].features)
   ) {
     return null;
   }
+  if (props[propName] === null) return null;
+
   return new Error(`Invalid prop \`${propName}\` supplied to` +
     ` \`${componentName}\`. Expecting a GeoJson object`);
 }

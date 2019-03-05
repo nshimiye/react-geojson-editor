@@ -66,7 +66,10 @@ GoogleMapInitialzer.propTypes = {
   // @note height needs to be greater than 0px
   // @source: https://developers.google.com/maps/documentation/javascript/adding-a-google-map
   height: PropTypes.number.isRequired,
-  width: PropTypes.string.isRequired,
+  width: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   zoom: PropTypes.number.isRequired,
 };
 
