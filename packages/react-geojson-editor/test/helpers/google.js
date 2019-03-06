@@ -5,6 +5,7 @@ export const getPathsMock = jest.fn(() => new MVCArray());
 export const toGeoJsonMock = jest.fn(cb =>  cb(mockedGeoJsonFeature));
 export const computeSignedAreaMock = jest.fn(() => 0);
 export const addGeoJsonMock = jest.fn(() => null);
+export const addListenerMock = jest.fn(() => null);
 export const forEachMock = jest.fn(cb => cb(new Data.Feature()));
 export const setMapMock = jest.fn(() => null);
 export const setCenterMock = jest.fn(() => null);
@@ -45,6 +46,7 @@ class Polygon {
 };
 class Map {
     setCenter = setCenterMock;
+    addListener = addListenerMock;
 };
 
 const geometry = {

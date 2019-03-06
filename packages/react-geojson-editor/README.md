@@ -37,14 +37,17 @@ Example:
 import { GoogleMapContext } from 'react-geojson-editor/google-map';
 
 class YourComponent extends Component {
-  static contextType = GoogleMapContext;
-  componentDidMount() {
-    if(this.context.map)
-        this.context.map.setCenter({ lat: 0, lng: 0 })
-  }
-  render() {
-    return <div>Access to map instance using GoogleMapContext</div>;
-  }
+    static contextType = GoogleMapContext;
+    componentDidMount() {
+        if (this.context.map) {
+            this.context.map.addListener('click', (e) => {
+                this.context.map.setCenter(e.latLng);
+            })
+        }
+    }
+    render() {
+        return <div>Access to map instance using GoogleMapContext</div>;
+    }
 }
 ```
 

@@ -9,7 +9,9 @@ class YourComponent extends Component {
   static contextType = GoogleMapContext;
   componentDidMount() {
     if (this.context.map) {
-      this.context.map.setCenter({ lat: 0, lng: 0 });
+      this.context.map.addListener('click', (e) => {
+        this.context.map.setCenter(e.latLng);
+      });
     }
   }
   render() {
