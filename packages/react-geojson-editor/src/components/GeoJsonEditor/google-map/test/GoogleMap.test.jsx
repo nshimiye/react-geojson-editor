@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 import { shallow, mount } from 'enzyme';
-import { GoogleMap } from '../GoogleMap';
+import { GoogleMap, GoogleMapWithLoader } from '../GoogleMap';
 import { GoogleMapContext } from '../GoogleMapInitialzer';
 
 class CWithMapAccess extends Component {
@@ -38,3 +38,31 @@ describe('GoogleMap', () => {
     expect(instance.context.map).toBeInstanceOf(google.maps.Map);
   });
 });
+
+describe('GoogleMapWithLoader', () => {
+  it('has not changed', () => {
+    const props = {
+      googleMapURL: '',
+      center: { lat: 0, lng: 0 },
+      zoom: 1,
+      height: 100,
+      width: 100,
+    };
+    const wrapper = shallow(<GoogleMapWithLoader {...props}><div /></GoogleMapWithLoader>);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('provides map instance to children components', () => {
+    const props = {
+      googleMapURL: '',
+      center: { lat: 0, lng: 0 },
+      zoom: 1,
+      height: 100,
+      width: 100,
+    };
+    const wrapper = mount(<GoogleMapWithLoader {...props}><CWithMapAccess /></GoogleMapWithLoader>);
+    const instance = wrapper.find(CWithMapAccess).instance();
+    expect(instance.context.map).toBeInstanceOf(google.maps.Map);
+  });
+});
+

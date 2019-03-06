@@ -9,6 +9,8 @@ export function GMDataType(props, propName, componentName) {
   if (props[propName] instanceof google.maps.Data) {
     return null;
   }
+  if (props[propName] === null) return null;
+
   return new Error(`Invalid prop \`${propName}\` supplied to` +
     ` \`${componentName}\`. Expecting instance of google.maps.Data.`);
 }

@@ -4,14 +4,20 @@ import PropTypes from 'prop-types';
 import { GoogleMapContext } from '../google-map';
 import { GMPolygonType, GMDataType } from '../../../custom-types';
 
-export default class Reader extends Component {
+export class Reader extends Component {
     static contextType = GoogleMapContext;
     static propTypes = {
       gmapData: GMDataType,
       newPolygonList: PropTypes.arrayOf(GMPolygonType),
     };
 
+    static defaultProps = {
+      gmapData: null,
+      newPolygonList: [],
+    }
+
     componentDidMount() {
+
       if (!this.props.gmapData) { return; }
 
       const { map } = this.context;
@@ -54,35 +60,4 @@ export default class Reader extends Component {
     }
 }
 
-
-// OLD version
-// export default class Reader extends Component {
-//     static contextType = GoogleMapContext;
-
-//     gmapData = null;
-
-//     constructor(props, context) {
-//         super(props, context);
-//         this.polygonRefs = [];
-//         console.log('[GeoJsonViewer] map', this.context.map);
-//     }
-
-//     componentDidMount() {
-//         const { map, google } = this.context;
-//         const { geojson } = this.props;
-//         if(!geojson){ return; }
-//         this.gmapData = new google.maps.Data();
-//         this.gmapData.addGeoJson(geojson);
-//         this.gmapData.setMap(map);
-//     }
-
-//     componentWillUnmount() {
-//         if(!this.gmapData){ return; }
-//         this.gmapData.setMap(null);
-//     }
-
-//     render() {
-//         return null;
-//     }
-// }
-
+export default Reader;

@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { shallow } from 'enzyme';
-import { Button } from '../../../Button';
 import { GeoJsonWriter } from '../GeoJsonWriter';
+import { PolygonDataContext } from '../../google-map';
 
-describe('Button', () => {
+describe('GeoJsonWriter', () => {
   it('has not changed', () => {
     const wrapper = shallow(<GeoJsonWriter />);
     expect(wrapper).toMatchSnapshot();
   });
-  xit('renders', () => {
+  it('renders consumer', () => {
     const wrapper = shallow(<GeoJsonWriter />);
-    expect(wrapper.find(Button)).toHaveLength(1);
+    expect(wrapper.find(PolygonDataContext.Consumer)).toHaveLength(1);
   });
 });
