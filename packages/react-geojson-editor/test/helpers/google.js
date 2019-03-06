@@ -7,6 +7,7 @@ export const computeSignedAreaMock = jest.fn(() => 0);
 export const addGeoJsonMock = jest.fn(() => null);
 export const forEachMock = jest.fn(cb => cb(new Data.Feature()));
 export const setMapMock = jest.fn(() => null);
+export const setCenterMock = jest.fn(() => null);
 export const getGeometryMock = jest.fn(() => new Data.Geometry());
 export const getPolygonTypeMock = jest.fn(() => 'Polygon');
 export const getMultiPolygonTypeMock = jest.fn(() => 'MultiPolygon');
@@ -42,7 +43,9 @@ class Data {
 class Polygon {
     getPaths = getPathsMock;
 };
-class Map {};
+class Map {
+    setCenter = setCenterMock;
+};
 
 const geometry = {
     spherical: {

@@ -5,8 +5,13 @@ import { shallow, mount } from 'enzyme';
 import { GoogleMap, GoogleMapWithLoader } from '../GoogleMap';
 import { GoogleMapContext } from '../GoogleMapInitialzer';
 
-class CWithMapAccess extends Component {
+class YourComponent extends Component {
   static contextType = GoogleMapContext;
+  componentDidMount() {
+    if (this.context.map) {
+      this.context.map.setCenter({ lat: 0, lng: 0 });
+    }
+  }
   render() {
     return <div>Access to map instance using GoogleMapContext</div>;
   }
@@ -33,8 +38,8 @@ describe('GoogleMap', () => {
       height: 100,
       width: 100,
     };
-    const wrapper = mount(<GoogleMap {...props}><CWithMapAccess /></GoogleMap>);
-    const instance = wrapper.find(CWithMapAccess).instance();
+    const wrapper = mount(<GoogleMap {...props}><YourComponent /></GoogleMap>);
+    const instance = wrapper.find(YourComponent).instance();
     expect(instance.context.map).toBeInstanceOf(google.maps.Map);
   });
 });
@@ -52,7 +57,7 @@ describe('GoogleMapWithLoader', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('provides map instance to children components', () => {
+  it('provides map instance to child components', () => {
     const props = {
       googleMapURL: '',
       center: { lat: 0, lng: 0 },
@@ -60,8 +65,8 @@ describe('GoogleMapWithLoader', () => {
       height: 100,
       width: 100,
     };
-    const wrapper = mount(<GoogleMapWithLoader {...props}><CWithMapAccess /></GoogleMapWithLoader>);
-    const instance = wrapper.find(CWithMapAccess).instance();
+    const wrapper = mount(<GoogleMapWithLoader {...props}><YourComponent /></GoogleMapWithLoader>);
+    const instance = wrapper.find(YourComponent).instance();
     expect(instance.context.map).toBeInstanceOf(google.maps.Map);
   });
 });

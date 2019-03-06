@@ -2,10 +2,6 @@
 
 Allowing you to draw and edit shapes on maps!
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
-
 ## Features
 * [x] onCreate action
 * [x] onUpdate action
@@ -17,7 +13,7 @@ Allowing you to draw and edit shapes on maps!
 
 ## Usage
 
-```
+```jsx
 import React from 'react';
 import GeoJsonEditor from 'react-geojson-editor';
 
@@ -29,4 +25,40 @@ import GeoJsonEditor from 'react-geojson-editor';
     mapHeight={700}
     onSave={(geojson, area) => {/* Ex: save updated geojson to the backend */}}
 />
+```
+
+## Other components
+### `GoogleMapWithLoader`
+
+Used if you want to access the map instance within your own components
+
+Example:
+```jsx
+import { GoogleMapContext } from 'react-geojson-editor/google-map';
+
+class YourComponent extends Component {
+  static contextType = GoogleMapContext;
+  componentDidMount() {
+    if(this.context.map)
+        this.context.map.setCenter({ lat: 0, lng: 0 })
+  }
+  render() {
+    return <div>Access to map instance using GoogleMapContext</div>;
+  }
+}
+```
+
+```jsx
+import React from 'react';
+import { GoogleMapWithLoader } from 'react-geojson-editor/google-map';
+
+<GoogleMapWithLoader {{
+    googleMapURL: '',
+    center: { lat: 0, lng: 0 },
+    zoom: 1,
+    height: 100,
+    width: 100,
+}}>
+    <YourComponent />
+</GoogleMapWithLoader>
 ```
