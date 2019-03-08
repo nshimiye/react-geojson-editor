@@ -1,7 +1,14 @@
 const Dotenv = require('dotenv-webpack');
 module.exports = {
   use: [
-    '@neutrinojs/airbnb',
+    ['@neutrinojs/airbnb', {
+      eslint: {
+        globals: ['google'],
+        rules: {
+          'react/jsx-closing-tag-location': 'off'
+        }
+      }
+    }],
     '@neutrinojs/react-components',
     ['@neutrinojs/jest', { setupFiles: [ '<rootDir>/test/helpers/setup.js' ] }],
     (neutrino) => {

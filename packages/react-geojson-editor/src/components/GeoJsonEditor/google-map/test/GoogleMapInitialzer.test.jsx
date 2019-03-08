@@ -22,11 +22,10 @@ describe('Button', () => {
       height: 100,
       width: 100,
     };
-    const wrapper = mount(
-      <ScriptContext.Provider value={google}>
-        <GoogleMapInitialzer {...props}><div /></GoogleMapInitialzer>
-      </ScriptContext.Provider>
-    );
+    const wrapper = mount(<ScriptContext.Provider value={google}>
+      <GoogleMapInitialzer {...props}><div /></GoogleMapInitialzer>
+    </ScriptContext.Provider>);
+
     expect(wrapper.state().map).toBeDefined();
   });
 });
