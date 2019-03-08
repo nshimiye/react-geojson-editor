@@ -1,6 +1,6 @@
 {
   "name": "react-geojson-editor-demo",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "description": "demo app for react-geojson-editor package",
   "keywords": [
@@ -44,7 +44,7 @@
     "react": "^16.8.3",
     "react-autosuggest": "9.4.3",
     "react-dom": "^16.8.3",
-    "react-geojson-editor": "^0.1.5",
+    "react-geojson-editor": "^0.1.6",
     "react-scripts": "2.1.5",
     "scriptjs": "2.5.9"
   },
