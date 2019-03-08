@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { GoogleMapContext } from '../google-map';
 import { GMPolygonType } from '../../../custom-types';
 
-export default class Updator extends Component {
+export class Updator extends Component {
     static contextType = GoogleMapContext;
     static propTypes = {
       polygons: PropTypes.arrayOf(GMPolygonType),
@@ -14,14 +14,14 @@ export default class Updator extends Component {
       onUnSelect: PropTypes.func,
     };
 
-    static defaultTypes = { // TODO
+    static defaultProps = { // TODO
       polygons: [],
       newPolygonList: [],
     }
 
     constructor(props, context) {
       super(props, context);
-      console.log('[GeoJsonViewer] map', this.context.map);
+      // console.log('[GeoJsonViewer] map', this.context.map);
     }
 
     // componentDidMount() {
@@ -30,15 +30,15 @@ export default class Updator extends Component {
 
     componentDidMount() {
       const { map } = this.context;
-      const { onSelect, onUnSelect, polygons } = this.props;
+      const { onSelect, onUnSelect, polygons, newPolygonList } = this.props;
 
       polygons.forEach((p) => {
         addSelectListener(p, { onSelect, onUnSelect });
         p.setMap(map);
       });
 
-      // @TODO this is a duplicate from Updator component
-      this.props.newPolygonList.forEach((p) => {
+      // @TODO this is a duplicate from Reader component
+      newPolygonList.forEach((p) => {
         addSelectListener(p, { onSelect, onUnSelect });
         p.setMap(map);
       });
@@ -93,6 +93,8 @@ export default class Updator extends Component {
       return null;
     }
 }
+
+export default Updator;
 
 /**
  * @TODO remove reference to polygon

@@ -14,11 +14,29 @@ export const getPolygonTypeMock = jest.fn(() => 'Polygon');
 export const getMultiPolygonTypeMock = jest.fn(() => 'MultiPolygon');
 // END extra
 
+const MapTypeControlStyle = {
+    DROPDOWN_MENU: 'DROPDOWN_MENU',
+};
+
+const ControlPosition = {
+    TOP_CENTER: 'TOP_CENTER',
+};
+const OverlayType = {
+    POLYGON: 'POLYGON',
+};
+
+
+
 class MVCArray {
     getArray() {
         return [] // MVCArray<LatLng>
     }
 };
+
+class DrawingManager {
+    addListener = addListenerMock;
+    setMap = setMapMock;
+}
 
 class Data {
     static Feature = class Feature {
@@ -43,6 +61,8 @@ class Data {
 
 class Polygon {
     getPaths = getPathsMock;
+    addListener = addListenerMock;
+    setMap = setMapMock;
 };
 class Map {
     setCenter = setCenterMock;
@@ -51,23 +71,25 @@ class Map {
 
 const geometry = {
     spherical: {
-        computeSignedArea: computeSignedAreaMock
+        computeSignedArea: computeSignedAreaMock,
     }
 };
 
-const MapTypeControlStyle = {
-    DROPDOWN_MENU: 'DROPDOWN_MENU',
-};
+const drawing = {
+    DrawingManager,
+    OverlayType
+}
 
 export const google = {
     maps: {
         MapTypeControlStyle,
+        ControlPosition,
         Map,
         Data,
         Polygon,
         geometry,
+        drawing
     }
 };
 
 export default google;
-

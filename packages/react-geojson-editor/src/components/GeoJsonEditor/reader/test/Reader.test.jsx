@@ -2,7 +2,7 @@ import React from 'react';
 
 import { shallow, mount } from 'enzyme';
 import { Reader } from '../Reader';
-import google, { setMapMock } from '../../../../../test/helpers/google';
+import { setMapMock } from '../../../../../test/helpers/google';
 import { GoogleMapContext } from '../../google-map';
 
 describe('Reader', () => {
@@ -15,19 +15,20 @@ describe('Reader', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders by attaching the map data to the map instance', () => {    
+  it('renders by attaching the map data to the map instance', () => {
     // Arrange
     const map = new google.maps.Map();
+    const gmapData = new google.maps.Data();
 
     // Act
     const wrapper = mount(
       <GoogleMapContext.Provider value={{ map }}>
-        <Reader gmapData={new google.maps.Data()} />
+        <Reader gmapData={gmapData} />
       </GoogleMapContext.Provider>
     ); 
 
     // Assert: that gmapData has been attached to the map instance
-    expect(wrapper.props().gmapData.setMap).toHaveBeenCalledWith(map);
+    expect(gmapData.setMap).toHaveBeenCalledWith(map);
   });
 
 });

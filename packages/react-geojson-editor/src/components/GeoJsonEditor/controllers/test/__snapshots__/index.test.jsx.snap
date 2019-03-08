@@ -120,6 +120,7 @@ ShallowWrapper {
         },
       },
     },
+    "disableLifecycleMethods": true,
   },
 }
 `;

@@ -1,12 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Reader has not changed 1`] = `
+exports[`Button has not changed 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Reader
-    gmapData={null}
-    newPolygonList={Array []}
-  />,
+  Symbol(enzyme.__unrendered__): <Creator />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],

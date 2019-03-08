@@ -1,12 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Reader has not changed 1`] = `
+exports[`Button has not changed 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Reader
-    gmapData={null}
-    newPolygonList={Array []}
-  />,
+  Symbol(enzyme.__unrendered__): <GoogleMapInitialzer
+    center={
+      Object {
+        "lat": 0,
+        "lng": 0,
+      }
+    }
+    height={100}
+    width={100}
+    zoom={1}
+  >
+    <div />
+  </GoogleMapInitialzer>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -16,9 +25,41 @@ ShallowWrapper {
     "simulateEvent": [Function],
     "unmount": [Function],
   },
-  Symbol(enzyme.__node__): null,
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": null,
+      "style": Object {
+        "height": 100,
+        "width": 100,
+      },
+    },
+    "ref": Object {
+      "current": null,
+    },
+    "rendered": null,
+    "type": "div",
+  },
   Symbol(enzyme.__nodes__): Array [
-    null,
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": null,
+        "style": Object {
+          "height": 100,
+          "width": 100,
+        },
+      },
+      "ref": Object {
+        "current": null,
+      },
+      "rendered": null,
+      "type": "div",
+    },
   ],
   Symbol(enzyme.__options__): Object {
     "adapter": ReactSixteenAdapter {

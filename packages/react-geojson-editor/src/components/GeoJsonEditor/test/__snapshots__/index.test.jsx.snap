@@ -265,7 +265,7 @@ ShallowWrapper {
         },
       },
     },
+    "disableLifecycleMethods": true,
   },
-  Symbol(enzyme.__childContext__): null,
 }
 `;

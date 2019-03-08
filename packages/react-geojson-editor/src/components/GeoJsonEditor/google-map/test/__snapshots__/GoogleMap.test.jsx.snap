@@ -13,12 +13,21 @@ ShallowWrapper {
     google={
       Object {
         "maps": Object {
+          "ControlPosition": Object {
+            "TOP_CENTER": "TOP_CENTER",
+          },
           "Data": [Function],
           "Map": [Function],
           "MapTypeControlStyle": Object {
             "DROPDOWN_MENU": "DROPDOWN_MENU",
           },
           "Polygon": [Function],
+          "drawing": Object {
+            "DrawingManager": [Function],
+            "OverlayType": Object {
+              "POLYGON": "POLYGON",
+            },
+          },
           "geometry": Object {
             "spherical": Object {
               "computeSignedArea": [Function],
@@ -62,12 +71,21 @@ ShallowWrapper {
       </GoogleMapInitialzer>,
       "value": Object {
         "maps": Object {
+          "ControlPosition": Object {
+            "TOP_CENTER": "TOP_CENTER",
+          },
           "Data": [Function],
           "Map": [Function],
           "MapTypeControlStyle": Object {
             "DROPDOWN_MENU": "DROPDOWN_MENU",
           },
           "Polygon": [Function],
+          "drawing": Object {
+            "DrawingManager": [Function],
+            "OverlayType": Object {
+              "POLYGON": "POLYGON",
+            },
+          },
           "geometry": Object {
             "spherical": Object {
               "computeSignedArea": [Function],
@@ -143,12 +161,21 @@ ShallowWrapper {
         </GoogleMapInitialzer>,
         "value": Object {
           "maps": Object {
+            "ControlPosition": Object {
+              "TOP_CENTER": "TOP_CENTER",
+            },
             "Data": [Function],
             "Map": [Function],
             "MapTypeControlStyle": Object {
               "DROPDOWN_MENU": "DROPDOWN_MENU",
             },
             "Polygon": [Function],
+            "drawing": Object {
+              "DrawingManager": [Function],
+              "OverlayType": Object {
+                "POLYGON": "POLYGON",
+              },
+            },
             "geometry": Object {
               "spherical": Object {
                 "computeSignedArea": [Function],
@@ -224,6 +251,7 @@ ShallowWrapper {
         },
       },
     },
+    "disableLifecycleMethods": true,
   },
 }
 `;
@@ -374,6 +402,7 @@ ShallowWrapper {
         },
       },
     },
+    "disableLifecycleMethods": true,
   },
 }
 `;
