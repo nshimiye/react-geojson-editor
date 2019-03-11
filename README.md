@@ -1,5 +1,8 @@
 # react-geojson-editor
 
+| WARNING: This package is still under development, and therefore unstable |
+| --- |
+
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]

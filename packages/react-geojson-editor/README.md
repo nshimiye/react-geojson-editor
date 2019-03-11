@@ -1,5 +1,8 @@
 # react-geojson-editor
 
+| WARNING: This package is still under development, and therefore unstable |
+| --- |
+
 Allowing you to draw and edit shapes on maps!
 
 ## Features
