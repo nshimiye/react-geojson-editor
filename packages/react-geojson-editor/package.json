@@ -45,7 +45,7 @@
     "prop-types": ">= 15.7.2",
     "react": ">= 16.8.3",
     "react-dom": ">= 16.8.3",
-    "sass-loader": "7.1.0"
+    "sass-loader": "8.0.0"
   },
   "dependencies": {
     "@turf/area": "6.0.1",
