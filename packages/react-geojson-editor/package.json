@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@neutrinojs/airbnb": "8.3.0",
-    "@neutrinojs/jest": "8.3.0",
+    "@neutrinojs/jest": "9.1.0",
     "@neutrinojs/react-components": "8.3.0",
     "classnames": ">= 2.2.6",
     "dotenv-webpack": "1.7.0",
